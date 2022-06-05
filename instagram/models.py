@@ -16,7 +16,7 @@ class Profile(models.Model):
     
 class Image(models.Model):
     image=models.ImageField(upload_to='uploads/gramposts/', )
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, null=True, blank=True)
     caption=models.TextField()
     uploader_profile = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     likes = models.ManyToManyField('Profile', default=False, blank=True, related_name='likes')
