@@ -1,0 +1,70 @@
+{% extends "registration/base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock styles %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row" id="loginpage">
+                <div class="col-md-6">
+                    <div id="phoneimage">
+                        <img src="../static/images/instagrampicture1.png " class="img-fluid" alt="instagram" >
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {% if form.errors %}
+                    <p> Password or Username is incorrect </p>
+                    {% endif %}
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h3 class="text-center">Instagram</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <form action="/accounts/login/" method="post">
+                                {% csrf_token %}
+                                {% bootstrap_form form%}
+
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                </div>
+                                <div class="panel-heading">
+                                    <p class="m-3">Don't have an account?
+                                    <a href="/accounts/register/" class="btn btn-primary btn-sm m-3">Sign Up</a>
+                                </p>
+                                </div>
+
+                                <input type="hidden" name="next" value="{{next}}">
+
+                            </form>
+
+                        </div>
+                        <div class="storebtn">
+                            <a href="https://play.google.com/store/search?q=instagram">
+                                <img src="../static/images/playstore.svg" alt="signuplogo "
+                                    style="width:150px; height:40px ">
+                            </a>
+                            <a href="https://www.apple.com/us/search/instagram?src=itunes_serp">
+                                <img src="https://imgs.search.brave.com/ANUVJRCUnSAP3L8YKIrhtg66JmTGVfsojE5RQjNWVzc/rs:fit:300:300:1/g:ce/aHR0cHM6Ly93d3cu/aGRpY29uLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAxMy8x/Mi9hcHBfc3RvcmUu/cG5n"
+                                    alt="applelogo" width="150px" >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- empty div -->
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{% endblock %}

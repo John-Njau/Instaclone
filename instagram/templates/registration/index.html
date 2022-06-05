@@ -1,0 +1,57 @@
+{% extends "registration/base.html" %}
+{% load bootstrap3 %}
+{% load static %}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock styles %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <!-- phone images -->
+                <div class="col-md-6">
+
+                </div>
+                <!-- login form -->
+                <div class="col-md-6">
+                    <div class="loginForm">
+                        {% if form.errors %}
+                        <p class="text-danger"> Password or Username is incorrect </p>
+                        {% endif %}
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                <h3 class="text-center">Instagram</h3>
+                            </div>
+                            <div class="panel-body">
+
+                                <form action="{% url 'home' %}" method="post">
+                                    {% csrf_token %}
+                                    {% bootstrap_form form%}
+
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                                    </div>
+
+                                    <input type="hidden" name="next" value="{{next}}">
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+{% endblock body %}
