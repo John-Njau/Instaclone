@@ -1,0 +1,21 @@
+
+.home-wrapper{
+    margin-top: 30px;
+}
+
+.home{
+    margin-top: 50px;
+    border: 1px solid #ccc;
+}
+
+.stories{
+    margin: 10px;
+    border: 1px solid #ccc;
+    height: 15vh;
+}
+
+.posts{
+    margin: 10px;
+    border: 1px solid #ccc;
+    height: 100%;
+}

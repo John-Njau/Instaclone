@@ -1,0 +1,40 @@
+#profilepic{
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    width: 150px;
+    height: 150px;
+}
+
+.wrapper{
+    /* margin: 0 10px; */
+    /* margin: auto auto; */
+}
+
+.insta-navbar{
+    display: flex;
+    background-color: yellow;
+    flex: wrap;
+    justify-content: space-between;
+}
+
+.brand-name{
+    justify-self: left;
+    margin-top: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.search{
+    justify-self: center;
+}
+
+.left-icons{
+    justify-self: right;
+}
+
+.nav-icon{
+    /* width:100px; 
+    height:30px; */
+    size: 50px 40px;
+    margin-top: 4px;
+}
