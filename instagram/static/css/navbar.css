@@ -8,6 +8,8 @@
 .wrapper{
     /* margin: 0 0; */
     margin: auto auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .insta-navbar{

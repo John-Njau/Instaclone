@@ -5,13 +5,20 @@
 
 .home, .sidebar{
     margin-top: 50px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
 
 .stories{
     margin: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     height: 15vh;
+}
+
+.user-story{
+    height:80px;
+    width:80px;
+    border-radius: 50%;
+    border: 2px solid rgb(173, 50, 50);
 }
 
 .posts{
