@@ -1,8 +1,8 @@
 #profilepic{
     border-radius: 50%;
     background-color: rgb(0, 0, 0);
-    width: 150px;
-    height: 150px;
+    width: 30px;
+    height: 30px;
 }
 
 .wrapper{
@@ -11,8 +11,9 @@
 }
 
 .insta-navbar{
+    margin-top: 10px;
     display: flex;
-    background-color: yellow;
+    /* background-color: yellow; */
     flex: wrap;
     justify-content: space-between;
 }
@@ -21,7 +22,6 @@
     justify-self: left;
     margin-top: 6px;
     text-decoration: none;
-    color: black;
 }
 
 .search{
@@ -32,9 +32,17 @@
     justify-self: right;
 }
 
+.nav-icon:hover{
+    background-color:rgba(0, 0, 0 ,0.4)
+}
+
 .nav-icon{
     /* width:100px; 
     height:30px; */
     size: 50px 40px;
     margin-top: 4px;
+}
+
+.input{
+    display: flex;
 }

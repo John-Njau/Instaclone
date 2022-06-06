@@ -3,7 +3,7 @@
     margin-top: 30px;
 }
 
-.home{
+.home, .sidebar{
     margin-top: 50px;
     border: 1px solid #ccc;
 }
@@ -16,6 +16,30 @@
 
 .posts{
     margin: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     height: 100%;
+}
+
+.post-card{
+    border: 1px solid #ccc;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 15px
+}
+
+.card-footer{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* .sidebar{
+    margin
+} */
+
+.upload-card{
+    margin-top: 55px;
+}
+.card-title{
+    margin-top: 15px;
+    
 }

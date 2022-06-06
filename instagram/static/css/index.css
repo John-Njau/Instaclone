@@ -1,5 +1,6 @@
 body{
-    background-color: yellow;
+    /* background-color: yellow; */
+    margin: 0;
 }
 
 #loginpage{
@@ -7,5 +8,5 @@ body{
 }
 
 #phoneimage{
-width: 200%;
+width: 100%;
 }
