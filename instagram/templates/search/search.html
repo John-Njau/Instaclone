@@ -1,0 +1,33 @@
+{%extends 'insta/base.html'%}
+{% load static %}
+{% load bootstrap4 %}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock styles %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        {% if terms%}
+        <h2>Found {{ terms|length }} categories for searched term {{message}}</h2>
+        {% else %}
+        <h2> Found 0 items for the searched term {{message}}</h2> <br>
+        {% endif %}
+    </div>
+    <div class="photo-cont">
+        {% if terms %}
+        {% for term in terms %}
+        <div class="col-sm-6 col-md-3">
+            <h1>{{term.name}}</h1>
+            <a href="{{term.image.url}}" class="thumbnail">
+                <img src="{{term.image.url}}" class="img-fluid" alt="{{term.name}}">
+            </a>
+            <br>
+            <p class="lead">{{term.caption}}</p>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
