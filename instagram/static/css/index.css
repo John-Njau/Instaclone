@@ -10,3 +10,8 @@ body{
 #phoneimage{
 width: 100%;
 }
+
+#instapng:hover{
+    transform: rotate(360deg);
+    transition-delay: 5sec;
+}
