@@ -1,0 +1,33 @@
+{% extends "registration/base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock styles %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Empty div -->
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div>
+                <!-- instagram/static/Assets/icons/instanav.svg -->
+                <img src="../static/Assets/icons/instanav.svg" alt="" height="80px">
+                <img class="img-fluid" id="instapng" src="../static/Assets/images/insta.png" alt="" >
+                <img src="../static/Assets/icons/instanav.svg" alt="" height="80px">
+                <img src="../static/Assets/icons/instanav.svg" alt="" height="80px">
+
+            </div>
+            <div class="text-center">
+                <a href="/accounts/login/" class="btn btn-primary">Login</a>
+            </div>
+        </div>
+        <!-- empty div -->
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+{% endblock %}
