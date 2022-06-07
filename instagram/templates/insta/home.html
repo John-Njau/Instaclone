@@ -1,4 +1,5 @@
 {% extends "insta/base.html" %}
+{% load bootstrap4 %}
 {% block body %}
 <div class="container home-wrapper">
     <div class="row">
@@ -9,12 +10,14 @@
             <div class="home">
                 <div class="stories mt-3">
                     <div class="user-stories">
-                        <p class="u">
-                            <span><img src="../static/Assets/icons/heart.svg" class="user-story" alt=""></span>
-                            <span><img src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?cs=srgb&dl=pexels-pixabay-60597.jpg&fm=jpg" class="user-story" alt=""></span>
-                            <span><img src="../static/Assets/icons/share.svg" class="user-story" alt=""></span>
-                            <span><img src="../static/Assets/icons/heart.svg" class="user-story" alt=""></span>
-                            <span><img src="../static/Assets/icons/comment.svg" class="user-story" alt=""></span>
+                        <p class="m-3">
+                            <span><img src="../static/Assets/icons/heart.svg" class="user-story img-fluid" alt=""></span>
+                            <span><img
+                                    src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?cs=srgb&dl=pexels-pixabay-60597.jpg&fm=jpg"
+                                    class="user-story" alt=""></span>
+                            <span><img src="../static/Assets/icons/share.svg" class="user-story img-fluid" alt=""></span>
+                            <span><img src="../static/Assets/icons/heart.svg" class="user-storyl img-fluid" alt=""></span>
+                            <span><img src="../static/Assets/icons/comment.svg" class="user-storyl img-fluid" alt=""></span>
                         </p>
                     </div>
                 </div>
@@ -27,8 +30,8 @@
                                 {% endfor %}
                                 <strong>{{post.uploaded_by.username}}</strong></span>
                         </h6>
-                        <div class="post-img text-center">
-                            <img class="" src="{{post.image.url}}" alt="" width="300"> <br>
+                        <div class="post-img text-center border-bottom ">
+                            <img class="img-fluid mb-2" src="{{post.image.url}}" alt="" width="300"> <br>
                         </div>
                         <p>
                             <span>{{post.likes | length}} <span class="btn"> <img src="../static/Assets/icons/heart.svg"
@@ -42,8 +45,11 @@
                         </p>
                         <div class="card-footer">
                             <div class="input">
-                                <input class="input" placeholder="Add a comment ..." />
-                                <button class="btn text-primary">Post</button>
+                                <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {% bootstrap_form commentform %}
+                                    <button type="submit" class="btn btn-primary btn-sm">Post
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -62,11 +68,11 @@
                         <p class="text-secondary">
                             Suggestions for you <strong>See All</strong>
                         </p>
-                        <p><strong>kimjongun</strong> <span class="text-primary"> Follow</span></p>
-                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
-                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
-                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
-                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>jongun</strong> <span class="text-primary text-right"> Follow</span></p>
+                        <p><strong>Bodon</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>kimK</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>kanyesouth</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>njokiKip</strong><span class="text-primary"> Follow</span></p>
                     </div>
 
                 </div>

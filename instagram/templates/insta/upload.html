@@ -12,8 +12,8 @@
                 </div>
                 <div class="card-body">
                     <div class="card-text">
-                        <form action="{%url 'home'%}" method="post" enctype="multipart/form-data">
-                            {%csrf_token%}
+                        <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
 
                             {% bootstrap_form postform %}
                             <button type="submit" class="btn btn-primary btn-sm">Post
@@ -26,4 +26,8 @@
             <div class="col-md-3"></div>
         </div>
     </div>
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock scripts %}
     {% endblock body %}
