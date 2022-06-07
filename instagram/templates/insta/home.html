@@ -7,38 +7,73 @@
         </div>
         <div class="col-md-6">
             <div class="home">
-                <div class="stories">
-                    Stories
+                <div class="stories mt-3">
+                    <div class="user-stories">
+                        <p class="u">
+                            <span><img src="../static/Assets/icons/heart.svg" class="user-story" alt=""></span>
+                            <span><img src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?cs=srgb&dl=pexels-pixabay-60597.jpg&fm=jpg" class="user-story" alt=""></span>
+                            <span><img src="../static/Assets/icons/share.svg" class="user-story" alt=""></span>
+                            <span><img src="../static/Assets/icons/heart.svg" class="user-story" alt=""></span>
+                            <span><img src="../static/Assets/icons/comment.svg" class="user-story" alt=""></span>
+                        </p>
+                    </div>
                 </div>
                 <div class="posts">
-                    posts
-                    <div class="card">
-                    <h4>
-                       <span> <img src="" alt="p-pic"><strong> john</strong></span>
-                    </h4>
-                    <div class="post-img text-center">
-                        <img class="" src="../static/images/instagrampicture1.png" alt="" width="300">  <br>
-                    </div>
-                        <p> 
-                            <span>likes</span> .
-                            <span>comments</span> .
-                            <span>share </span> <br></p>
-                        <p>Liked by ..etc </p>
+                    {% for post in posts %}
+                    <div class="card post-card">
+                        {% for user in users %}
+                        <h6>
+                            <span> <img id="profilepic" src="{{user.profilepic.url}}" alt="p-pic">
+                                {% endfor %}
+                                <strong>{{post.uploaded_by.username}}</strong></span>
+                        </h6>
+                        <div class="post-img text-center">
+                            <img class="" src="{{post.image.url}}" alt="" width="300"> <br>
+                        </div>
                         <p>
-                            lorem 30
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nemo odit dolorem esse ea
-                            libero, veniam inventore dicta autem aperiam ut enim ullam!
+                            <span>{{post.likes | length}} <span class="btn"> <img src="../static/Assets/icons/heart.svg"
+                                        alt=""></span></span>
+                            <span>{{post.comments | length}} <img src="../static/Assets/icons/comment.svg"
+                                    alt=""></span>
+                            <span><img src="../static/Assets/icons/share.svg" alt=""></span> <br></p>
+                        <p>Liked by <span><strong>jnjauu</strong> and <span>67 others</span></span> </p>
+                        <p>
+                            {{post.caption}}
                         </p>
                         <div class="card-footer">
-                            <input class="input" placeholder="Add a comment ..."/>
+                            <div class="input">
+                                <input class="input" placeholder="Add a comment ..." />
+                                <button class="btn text-primary">Post</button>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
 
             </div>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 sidebar">
+            <div class="row">
+                <div class="col-md-9">
+
+                    <h5><strong>john</strong> <span class="text-primary">Switch</span> </h5>
+                    <div class="suggestions">
+                        <p class="text-secondary">
+                            Suggestions for you <strong>See All</strong>
+                        </p>
+                        <p><strong>kimjongun</strong> <span class="text-primary"> Follow</span></p>
+                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
+                        <p><strong>kimjongun</strong><span class="text-primary"> Follow</span></p>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+            </div>
             <!-- empty div -->
         </div>
     </div>

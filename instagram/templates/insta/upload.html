@@ -1,10 +1,7 @@
 {% extends "insta/base.html" %}
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 {% block body %}
 <div class="container">
-    block body
-   
-    
     <div class="row">
         <!-- empty -->
         <div class="col-md-3"></div>
@@ -14,17 +11,19 @@
                     <h4 class="card-title text-center">Create new Post</h4>
                 </div>
                 <div class="card-body">
-                    <div class="card-text"> <form  action="{%url 'home'%}" method="post" enctype="multipart/form-data">
-                        {%csrf_token%}
-                    
-                        {% bootstrap_form postform%}
-                        <button type="submit" class="btn btn-success btn-lg">Post
-                      </form></p>
+                    <div class="card-text">
+                        <form action="{%url 'home'%}" method="post" enctype="multipart/form-data">
+                            {%csrf_token%}
+
+                            {% bootstrap_form postform %}
+                            <button type="submit" class="btn btn-primary btn-sm">Post
+                        </form>
+                        </p>
+                    </div>
                 </div>
             </div>
+            <!-- empty -->
+            <div class="col-md-3"></div>
         </div>
-        <!-- empty -->
-        <div class="col-md-3"></div>
     </div>
-</div>
-{% endblock body %}
+    {% endblock body %}
