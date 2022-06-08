@@ -20,7 +20,7 @@ def index(request):
     # context= {
     #     'form': form
     # }
-    return render(request, 'insta/index.html')
+    return redirect('/accounts/login/')
  
 @login_required(login_url='/accounts/login/')
 def home(request):

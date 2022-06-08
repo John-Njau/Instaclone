@@ -10,3 +10,9 @@ super:
 
 shell:
 	Python manage.py shell
+
+tests: 
+	python manage.py test
+
+check: 
+	python manage.py check instagram

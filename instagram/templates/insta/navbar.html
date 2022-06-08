@@ -3,82 +3,80 @@
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
 {% endblock styles %} {% block content %}
-<div class="container bg-light">
+<div class="container-fluid bg-light" id="main-nav">
   <div class="row">
-    <div class="col-md-2 bg-light"></div>
-    <div class="col-md-8">
-      <nav class="navbar navbar-expand-sm navbar-light bg-light" aria-label="Third navbar example">
-        <div class="container d-flex justify-content-around">
-          <a class="navbar-brand" href="/home">
-            <img src="../static/Assets/icons/logo.svg" alt="" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
-            aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarsExample03">
-            <form class="navbar-form" action="{% url 'search_results' %}" role="search">
-              <div class="input-group">
-                <input style="height: 33px; width: 200px; margin: 6px" type="text"
-                  class="input-sm bg-light form-control" name="term" placeholder="Search image" />
-                <div class="input-group-btn bg-light">
-                  <button class="btn btn-default" type="submit"> <i class="fa fa-search text-dark"></i></button>
-
-                </div>
-                <!-- <img src="../static/Assets/icons/search.svg" /> -->
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light d-flex justify-content-around" aria-label="Third navbar example">
+        <a class="navbar-brand" href="/home">
+          <img src="../static/Assets/icons/logo.svg" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+          aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <form class="navbar-form" action="{% url 'search_results' %}" role="search">
+            <div class="input-group">
+              <input style="height: 33px; width: 200px; margin: 6px" type="text" class="input-sm bg-light form-control"
+                name="term" placeholder="Search image" />
+              <div class="input-group-btn bg-light">
+                <button class="btn btn-default" type="submit"> <i class="fa fa-search text-dark"></i></button>
+    
               </div>
-            </form>
-            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-              <li class="nav-item">
-                <a href="{% url 'home' %}" class="nav-link active" aria-current="page">
-                  <img src="../static/Assets/icons/home.svg" alt="" class="nav-icon" /></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <img src="../static/Assets/icons/messenger.svg" alt="" class="nav-icon" /></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'upload' %}">
-                  <img src="../static/Assets/icons/add.svg" alt="" class="nav-icon" />
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{% url 'upload' %}" class="nav-link">
-                  <img src="../static/Assets/icons/heart.svg" alt="" class="nav-icon" /></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <img src="../static/Assets/images/default-user.png" alt="profile"
-                    style="width: 30px; height: 30px; border-radius: 50%" />
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdown03">
-                  <li>
-                    <a href="{%url 'profile'%}" class="dropdown-item" role="button">Profile</a>
-                  </li>
-                  <li>
-                    <a href="#" role="button" class="dropdown-item">Saved</a>
-                  </li>
-                  <li>
-                    <a href="{%url 'updateprofile'%}" class="dropdown-item">Settings</a>
-                  </li>
-                  <li>
-                    <a href="/accounts/login/" role="button" class="disabled" class="dropdown-item">Switch Account</a>
-                  </li>
-                  <hr />
-                  <li>
-                    <a href="{% url 'auth_logout' %}?next=/">Logout</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+              <!-- <img src="../static/Assets/icons/search.svg" /> -->
+            </div>
+          </form>
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link active" aria-current="page">
+                <img src="../static/Assets/icons/home.svg" alt="" class="nav-icon" /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <img src="../static/Assets/icons/messenger.svg" alt="" class="nav-icon" /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'upload' %}">
+                <img src="../static/Assets/icons/add.svg" alt="" class="nav-icon" />
+              </a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="{% url 'upload' %}" class="nav-link">
+                <img src="../static/Assets/icons/heart.svg" alt="" class="nav-icon" /></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../static/Assets/images/default-user.png" alt="profile"
+                  style="width: 30px; height: 30px; border-radius: 50%" />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                <li>
+                  <a href="{%url 'profile'%}" class="dropdown-item" role="button">Profile</a>
+                </li>
+                <li>
+                  <a href="#" role="button" class="dropdown-item">Saved</a>
+                </li>
+                <li>
+                  <a href="{%url 'updateprofile'%}" class="dropdown-item">Settings</a>
+                </li>
+                <li>
+                  <a href="/accounts/login/" role="button" class="disabled" class="dropdown-item">Switch Account</a>
+                </li>
+                <hr />
+                <li>
+                  <a href="{% url 'auth_logout' %}?next=/">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
   </div>
+
 </div>
 
 

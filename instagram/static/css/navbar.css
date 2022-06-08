@@ -5,6 +5,10 @@
     height: 30px;
 }
 
+#main-nav{
+    margin: auto auto;
+}
+
 .wrapper{
     /* margin: 0 0; */
     margin: auto auto;
