@@ -4,19 +4,20 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h1>My profile</h1>
+            <h1 class="bold text-center">My profile</h1>
+            <small><strong>Profile Id : </strong></small>
             {{profile.id}}
-            <img src="{{ profile.profilepic.url }}" alt="">
+            {% if profile %}
+            <img src="{{ profile.profilepic.url }}" alt="" class="img-fluid">
+            <p>Bio: <br> <strong>{{profile.bio}}</strong> </p>
+            <a href="{% url 'updateprofile' %}" class="text-center">
+                <button class="btn btn-secondary" >Update profile</button>
 
-            {% for detail in profile %}
-            <img src="{{ detail.profilepic.url }}" alt="" class="img-fluid">
-            <h2>Bio: {{detail.bio}}</h2>
-            <button class="btn btn-primary" href="{% url 'updateprofile' %}">Update profile</button>
-            {% endfor %}
+            </a>
+            {% endif %}
             <div class="container border mt-4">
                 <h3 class=" bold text-center">My Posts</h3>
                 {% for post in images %}
-
                 <div>
                     <img src="{{post.image.url }}" alt="" class="img-fluid">
                     <p>{{post.caption}}</p>
@@ -25,6 +26,10 @@
                 </div>
 
                 {% endfor %}
+                <a href="{% url 'upload' %}">
+                    <button class="btn btn-primary" >Add Post</button>
+    
+                </a>
             </div>
         </div>
         <div class="col-md-3"></div>

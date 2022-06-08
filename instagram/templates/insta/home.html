@@ -11,34 +11,47 @@
                 <div class="stories mt-3">
                     <div class="user-stories">
                         <p class="m-3">
-                            <span><img src="../static/Assets/icons/heart.svg" class="user-story img-fluid" alt=""></span>
+                            <span><img src="../static/Assets/icons/heart.svg" class="user-story img-fluid"
+                                    alt=""></span>
                             <span><img
                                     src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg?cs=srgb&dl=pexels-pixabay-60597.jpg&fm=jpg"
                                     class="user-story" alt=""></span>
-                            <span><img src="../static/Assets/icons/share.svg" class="user-story img-fluid" alt=""></span>
-                            <span><img src="../static/Assets/icons/heart.svg" class="user-storyl img-fluid" alt=""></span>
-                            <span><img src="../static/Assets/icons/comment.svg" class="user-storyl img-fluid" alt=""></span>
+                            <span><img src="../static/Assets/icons/share.svg" class="user-story img-fluid"
+                                    alt=""></span>
+                            <span><img src="../static/Assets/icons/heart.svg" class="user-storyl img-fluid"
+                                    alt=""></span>
+                            <span><img src="../static/Assets/icons/comment.svg" class="user-storyl img-fluid"
+                                    alt=""></span>
                         </p>
                     </div>
                 </div>
                 <div class="posts">
                     {% for post in posts %}
                     <div class="card post-card">
-                        {% for user in users %}
+                        {% if users.profilepic %}
                         <h6>
                             <span> <img id="profilepic" src="{{user.profilepic.url}}" alt="p-pic">
-                                {% endfor %}
+                                {% endif %}
                                 <strong>{{post.uploaded_by.username}}</strong></span>
                         </h6>
                         <div class="post-img text-center border-bottom ">
                             <img class="img-fluid mb-2" src="{{post.image.url}}" alt="" width="300"> <br>
                         </div>
-                        <p>
-                            <span>{{post.likes | length}} <span class="btn"> <img src="../static/Assets/icons/heart.svg"
-                                        alt=""></span></span>
-                            <span>{{post.comments | length}} <img src="../static/Assets/icons/comment.svg"
-                                    alt=""></span>
-                            <span><img src="../static/Assets/icons/share.svg" alt=""></span> <br></p>
+                        <p class="mt-2">
+                            <span class="btn btn-light btn-sm">
+                                <a id="like" href="{% url 'like' operation='like' pk=post.id%}"><span class="btn">
+                                        <!-- <img src="../static/Assets/icons/heart.svg" alt=""></span> -->
+                                </a>
+                                {% if post.likes >= 1 %}
+                                <span class="">{{post.likes}} <img src="../static/Assets/icons/heart.svg" alt=""></span>
+                            </span>
+                            {% endif %}
+                            </span>
+                            <span class="btn btn-light btn-sm">{{post.comments | length}} <img
+                                    src="../static/Assets/icons/comment.svg" alt="">
+                            </span>
+                            <span>
+                                <img src="../static/Assets/icons/share.svg" alt=""></span> <br></p>
                         <p>Liked by <span><strong>jnjauu</strong> and <span>67 others</span></span> </p>
                         <p>
                             {{post.caption}}
@@ -51,6 +64,17 @@
                                     <button type="submit" class="btn btn-primary btn-sm">Post
                                 </form>
                             </div>
+                            {% for comment in comments %}
+                            <div class="comment">
+                                <p class="info">
+                                    Comment {{ forloop.counter }} by {{ comment.comment_by.name }}
+                                    {{ comment.comment_date }}
+                                </p>
+                                {{ comment.comment|linebreaks }}
+                            </div>
+                            {% empty %}
+                            <p>There are no comments yet.</p>
+                            {% endfor %}
                         </div>
                     </div>
                     {% endfor %}
